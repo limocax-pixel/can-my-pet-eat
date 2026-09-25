@@ -69,19 +69,25 @@ ${footer()}
 `;
 }
 
+
+const ICONS = `<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="i-yes" viewBox="0 0 24 24"><path d="M6 12.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-limit" viewBox="0 0 24 24"><ellipse cx="14.5" cy="8.5" rx="4" ry="5" transform="rotate(35 14.5 8.5)" fill="currentColor"/><path d="M11.5 12.5L6 19" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></symbol>
+<symbol id="i-avoid" viewBox="0 0 24 24"><path d="M12 5.5v8" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/><circle cx="12" cy="18.5" r="2" fill="currentColor"/></symbol>
+<symbol id="i-no" viewBox="0 0 24 24"><path d="M7 7l10 10M17 7L7 17" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></symbol>
+</svg>`;
+
 function header() {
-  return `<header class="site-header">
+  return `${ICONS}<header class="site-header">
   <div class="wrap site-header__in">
     <a class="logo" href="${url()}" aria-label="${esc(SITE.name)} home">
-      <svg class="logo__mark" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="22" r="15" fill="#f3c38b"/><circle cx="9" cy="10" r="5" fill="#f3c38b"/><circle cx="31" cy="10" r="5" fill="#f3c38b"/><circle cx="9" cy="10" r="2.6" fill="#f2a3ad"/><circle cx="31" cy="10" r="2.6" fill="#f2a3ad"/><ellipse cx="20" cy="27" rx="9" ry="7" fill="#fff4e4"/><circle cx="14.5" cy="20" r="2.2" fill="#1d1612"/><circle cx="25.5" cy="20" r="2.2" fill="#1d1612"/><circle cx="20" cy="24.5" r="1.7" fill="#e88a95"/></svg>
+      <img class="logo__mark" src="${url('favicon.svg')}" alt="" width="34" height="34">
       <span class="logo__text"><span class="logo__name">Can My Pet Eat This?</span><span class="logo__by">by ${BRAND.name}</span></span>
     </a>
     <nav class="nav" aria-label="Main">
       <a href="${url('can-hamsters-eat/')}">Hamsters</a>
       <a href="${url('can-budgies-eat/')}">Budgies</a>
       <a href="${url('can-cockatiels-eat/')}">Cockatiels</a>
-      <a href="${url('feeding-scale/')}">How we rate</a>
-      <a href="${url('data/')}">Open data</a>
     </nav>
   </div>
 </header>`;
@@ -89,44 +95,32 @@ function header() {
 
 function footer() {
   return `<footer class="site-footer">
-  <div class="wrap site-footer__grid">
-    <div>
-      <p class="site-footer__brand"><strong>${SITE.name}</strong> is made with love by <a href="${BRAND.url}" rel="noopener">${BRAND.name}</a>.</p>
-      <p>${esc(BRAND.about)} This site has no ads and no affiliate links, and our products never change a verdict. <a href="${url('about/')}">About us</a>.</p>
-      <p class="muted">Not veterinary advice. If your pet is unwell or has eaten something toxic, contact an exotic-animal vet straight away. <a href="${url('emergency/')}">What to do in an emergency</a>.</p>
-    </div>
-    <div>
-      <p class="site-footer__h">Guides</p>
-      <ul>
-        <li><a href="${url('can-hamsters-eat/')}">What can hamsters eat?</a></li>
-        <li><a href="${url('can-budgies-eat/')}">What can budgies eat?</a></li>
-        <li><a href="${url('can-cockatiels-eat/')}">What can cockatiels eat?</a></li>
-        <li><a href="${url('feeding-scale/')}">The JOMIZOO Feeding Scale</a></li>
-      </ul>
-    </div>
-    <div>
-      <p class="site-footer__h">Open source</p>
-      <ul>
-        <li><a href="${url('data/')}">Download the dataset (CC BY 4.0)</a></li>
-        <li><a href="${SITE.repo}">Code on GitHub (MIT)</a></li>
-        <li><a href="${SITE.repo}/issues/new?labels=correction&amp;title=Correction%3A%20">Report a mistake</a></li>
-        <li><a href="${url('llms.txt')}">llms.txt</a></li>
-      </ul>
-    </div>
+  <div class="wrap">
+    <nav class="site-footer__nav" aria-label="Footer">
+      <a href="${url('can-hamsters-eat/')}">Hamster foods</a>
+      <a href="${url('can-budgies-eat/')}">Budgie foods</a>
+      <a href="${url('can-cockatiels-eat/')}">Cockatiel foods</a>
+      <a href="${url('feeding-scale/')}">How we rate</a>
+      <a href="${url('emergency/')}">Emergency</a>
+      <a href="${url('data/')}">Open data</a>
+      <a href="${url('about/')}">About</a>
+      <a href="${SITE.repo}">GitHub</a>
+    </nav>
+    <p>Made with love by <a href="${BRAND.url}" rel="noopener">${BRAND.name}</a>, maker of paper bedding and carriers for small pets. No ads, no affiliate links; our products never change a verdict.</p>
+    <p class="muted">Not veterinary advice. If your pet is unwell or ate something toxic, call an exotic-animal vet. © ${new Date().getFullYear()} ${BRAND.name} · Content &amp; data <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · Code MIT</p>
   </div>
-  <div class="wrap site-footer__legal">© ${new Date().getFullYear()} ${BRAND.name}. Content &amp; data: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · Code: MIT.</div>
 </footer>`;
 }
 
 // ── small components ────────────────────────────────────────────────
 export function pill(status, text) {
-  return `<span class="pill pill--${status}"><span class="pill__dot" aria-hidden="true"></span>${esc(text ?? VERDICTS[status].label)}</span>`;
+  return `<span class="pill pill--${status}"><svg class="pill__i" aria-hidden="true"><use href="#i-${status}"/></svg>${esc(text ?? VERDICTS[status].label)}</span>`;
 }
 
 function crumbs(items) {
   const html = items
     .map((it, i) => (i < items.length - 1 ? `<a href="${url(it.path)}">${esc(it.name)}</a>` : `<span aria-current="page">${esc(it.name)}</span>`))
-    .join('<span class="crumbs__sep" aria-hidden="true">›</span>');
+    .join('<span class="crumbs__sep" aria-hidden="true">/</span>');
   const ld = {
     '@type': 'BreadcrumbList',
     itemListElement: items.map((it, i) => ({ '@type': 'ListItem', position: i + 1, name: it.name, item: abs(it.path) })),
@@ -134,18 +128,23 @@ function crumbs(items) {
   return { html: `<nav class="crumbs wrap" aria-label="Breadcrumb">${html}</nav>`, ld };
 }
 
-function foodCard(food, sp, v, { level = 'h3' } = {}) {
-  return `<a class="card tilt" href="${url(foodPath(sp, food))}" data-food="${food.id}">
-  <span class="card__img"><img src="${thumb(food)}" alt="" width="160" height="160" loading="lazy" decoding="async"></span>
-  <${level} class="card__name">${esc(food.name)}</${level}>
-  ${pill(v.status)}
+/** Compact food tile: 3D thumbnail, name, verdict badge. */
+function tile(food, sp, v) {
+  return `<a class="tile tilt" href="${url(foodPath(sp, food))}" data-food="${food.id}" data-v="${v.status}">
+  <span class="tile__img"><img src="${thumb(food)}" alt="" width="160" height="160" loading="lazy" decoding="async"></span>
+  <span class="tile__badge" title="${VERDICTS[v.status].label}"><svg aria-hidden="true"><use href="#i-${v.status}"/></svg><span class="sr-only">${VERDICTS[v.status].label}</span></span>
+  <span class="tile__name">${esc(food.name.replace(/ \(.*\)/, ''))}</span>
 </a>`;
 }
 
-function stage({ species, food, verdict, poster, label }) {
+function legend() {
+  return `<ul class="legend" aria-label="Verdict key">${VERDICT_ORDER.map((s) => `<li class="legend__${s}"><svg aria-hidden="true"><use href="#i-${s}"/></svg>${VERDICTS[s].label}</li>`).join('')}</ul>`;
+}
+
+function stage({ species, food, verdict, poster, posterClass = '', label }) {
   return `<figure class="stage" data-stage data-species="${species}"${food ? ` data-food="${food}"` : ''}${verdict ? ` data-verdict="${verdict}"` : ''}>
-  ${poster ? `<img class="stage__poster" src="${poster}" alt="${esc(label)}" width="320" height="320">` : ''}
-  <figcaption class="stage__hint">Drag to turn the 3D scene</figcaption>
+  ${poster ? `<img class="stage__poster ${posterClass}" src="${poster}" alt="${esc(label)}" width="880" height="600">` : ''}
+  <figcaption class="stage__hint">Drag to turn · tap your pet</figcaption>
 </figure>`;
 }
 
@@ -166,7 +165,7 @@ const NUTRIENT_ROWS = [
   ['fiber_g', 'Fibre', 'g'],
   ['calcium_mg', 'Calcium', 'mg'],
   ['phosphorus_mg', 'Phosphorus', 'mg'],
-  ['ca_p_ratio', 'Calcium : phosphorus ratio', ''],
+  ['ca_p_ratio', 'Calcium : phosphorus', ''],
   ['sodium_mg', 'Sodium', 'mg'],
   ['vitaminA_ug_rae', 'Vitamin A (RAE)', 'µg'],
   ['vitaminC_mg', 'Vitamin C', 'mg'],
@@ -178,16 +177,16 @@ const HIDE_IF_ZERO = new Set(['caffeine_mg', 'theobromine_mg', 'alcohol_g']);
 
 export const fmt = (n) => (n == null ? '—' : n >= 100 ? Math.round(n).toLocaleString('en') : String(Math.round(n * 10) / 10));
 
-function nutritionTable(food, nut) {
+function nutritionFold(food, nut) {
   if (!nut) return '';
   const rows = NUTRIENT_ROWS.filter(([k]) => nut.per100g[k] != null && !(HIDE_IF_ZERO.has(k) && !nut.per100g[k]))
     .map(([k, label, unit]) => `<tr><th scope="row">${label}</th><td>${k === 'ca_p_ratio' ? `${nut.per100g[k]} : 1` : `${fmt(nut.per100g[k])} ${unit}`}</td></tr>`)
     .join('');
-  return `<section class="block" id="nutrition">
-  <h2>${esc(cap(foodQ(food)))}: nutrition per 100 g</h2>
+  return `<details class="fold" id="nutrition">
+  <summary><h2>${esc(cap(foodQ(food)))}: nutrition per 100 g</h2></summary>
   <table class="nutri"><tbody>${rows}</tbody></table>
-  <p class="note">Values for “${esc(nut.usdaDescription)}” from <a href="https://fdc.nal.usda.gov/food-details/${nut.fdcId}/nutrients" rel="noopener">USDA FoodData Central</a> (SR Legacy, FDC ID ${nut.fdcId}). Public domain.</p>
-</section>`;
+  <p class="note">“${esc(nut.usdaDescription)}”, <a href="https://fdc.nal.usda.gov/food-details/${nut.fdcId}/nutrients" rel="noopener">USDA FoodData Central</a> (SR Legacy, FDC ${nut.fdcId}). Public domain.</p>
+</details>`;
 }
 
 // ── pages ────────────────────────────────────────────────────────────
@@ -206,21 +205,20 @@ export function foodPage(ctx, food, sp) {
   ]);
   const title = `Can ${Sp} Eat ${titleCase(q)}? ${VERDICTS[v.status].label} – Portion & Safety Guide`;
   const facts = [
-    ['Verdict', VERDICTS[v.status].long],
     v.portion && ['Portion', v.portion],
     v.frequency && ['How often', v.frequency],
     v.dwarf && ['Dwarf hamsters', v.dwarf],
-    nut?.per100g.sugar_g != null && ['Sugar', `${fmt(nut.per100g.sugar_g)} g per 100 g (USDA)`],
-    nut?.per100g.fat_g != null && nut.per100g.fat_g >= 5 && ['Fat', `${fmt(nut.per100g.fat_g)} g per 100 g (USDA)`],
+    nut?.per100g.sugar_g != null && ['Sugar', `${fmt(nut.per100g.sugar_g)} g / 100 g`],
+    nut?.per100g.fat_g != null && nut.per100g.fat_g >= 5 && ['Fat', `${fmt(nut.per100g.fat_g)} g / 100 g`],
   ].filter(Boolean);
 
   const others = data.species.filter((s) => s.id !== sp.id);
-  const related = data.foods.filter((f) => f.category === food.category && f.id !== food.id).slice(0, 8);
+  const related = data.foods.filter((f) => f.category === food.category && f.id !== food.id);
   const faq = [{ q: `Can ${sp.plural} eat ${q}?`, a: v.short }, ...(v.faq ?? [])];
   const evidence =
     v.evidence === 'direct'
       ? `The sources below discuss ${esc(q)} for ${sp.plural} (or for pet ${sp.group === 'bird' ? 'birds' : 'rodents'} generally).`
-      : `No source we found addresses ${esc(q)} for ${sp.plural} specifically, so this verdict is reasoned from the general feeding guidance and nutrition data below.`;
+      : `No source we found covers ${esc(q)} for ${sp.plural} specifically, so this verdict is reasoned from general feeding guidance and nutrition data.`;
 
   const pageLd = {
     '@type': 'WebPage',
@@ -236,7 +234,7 @@ export function foodPage(ctx, food, sp) {
     publisher: { '@id': BRAND.url + '#org' },
     datePublished: data.published,
     dateModified: data.updated,
-    image: abs(`img/foods/${food.id}.webp`),
+    image: abs(`img/og/${food.id}.jpg`),
     citation: (v.sources ?? []).map((id) => sources[id]?.url).filter(Boolean),
     breadcrumb: bc.ld,
   };
@@ -248,68 +246,59 @@ export function foodPage(ctx, food, sp) {
 
   const body = `${bc.html}
 <article class="food wrap" data-verdict="${v.status}">
-  <header class="food-hero">
-    <div class="food-hero__text">
-      <p class="eyebrow">${esc(cap(sp.name))} food guide · ${esc(cat.name)}</p>
+  <header class="top">
+    ${stage({ species: sp.id, food: food.id, verdict: v.status, poster: thumb(food), posterClass: 'stage__poster--food', label: `3D illustration: a ${sp.name} next to a dish of ${q}` })}
+    <div class="sheet">
+      <p class="eyebrow">${esc(cap(sp.name))} · ${esc(cat.name)}</p>
       <h1>Can ${esc(sp.plural)} eat ${esc(q)}?</h1>
       <div class="answer answer--${v.status}">
-        ${pill(v.status)}
+        ${pill(v.status, VERDICTS[v.status].long)}
         <p class="answer__text">${esc(v.short)}</p>
       </div>
-      <dl class="facts">${facts.map(([k, val]) => `<div><dt>${k}</dt><dd>${esc(val)}</dd></div>`).join('')}</dl>
+      ${facts.length ? `<dl class="facts">${facts.map(([k, val]) => `<div${k === 'Dwarf hamsters' ? ' class="facts__wide"' : ''}><dt>${k}</dt><dd>${esc(val)}</dd></div>`).join('')}</dl>` : ''}
     </div>
-    ${stage({ species: sp.id, food: food.id, verdict: v.status, poster: thumb(food), label: `3D illustration: a ${sp.name} next to a dish of ${q}` })}
   </header>
 
-  <div class="food-body">
-    ${v.prep?.length ? `<section class="block"><h2>How to serve ${esc(q)} to your ${esc(sp.name)}</h2><ol class="steps">${v.prep.map((s) => `<li>${esc(s)}</li>`).join('')}</ol></section>` : ''}
-    ${v.ifEaten ? `<section class="block callout callout--${v.status}"><h2>If your ${esc(sp.name)} already ate some</h2><p>${esc(v.ifEaten)}</p>${v.status === 'no' ? `<p><a href="${url('emergency/')}">What to do if your pet ate something toxic →</a></p>` : ''}</section>` : ''}
-    <section class="block two">
-      ${v.benefits ? `<div><h2>Benefits</h2><p>${esc(v.benefits)}</p></div>` : ''}
-      <div><h2>Risks</h2><p>${esc(v.risks)}</p></div>
+  <div class="body">
+    ${v.ifEaten ? `<section class="callout callout--${v.status}"><h2>If your ${esc(sp.name)} already ate some</h2><p>${esc(v.ifEaten)}</p>${v.status === 'no' ? `<p><a href="${url('emergency/')}">Emergency steps →</a></p>` : ''}</section>` : ''}
+    ${v.prep?.length ? `<section class="block"><h2>How to serve it</h2><ol class="steps">${v.prep.map((s) => `<li>${esc(s)}</li>`).join('')}</ol></section>` : ''}
+    <section class="block why">
+      <h2>Why</h2>
+      <p><strong>Risks.</strong> ${esc(v.risks)}</p>
+      ${v.benefits ? `<p><strong>Benefits.</strong> ${esc(v.benefits)}</p>` : ''}
     </section>
-    ${nutritionTable(food, nut)}
-    <section class="block" id="faq">
-      <h2>Questions owners ask</h2>
-      ${faq.slice(1).map((f) => `<details class="faq"><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join('') || '<p class="muted">No follow-up questions yet.</p>'}
-    </section>
+    ${faq.length > 1 ? `<details class="fold" id="faq"><summary><h2>Questions owners ask <span class="count">${faq.length - 1}</span></h2></summary>${faq
+      .slice(1)
+      .map((f) => `<div class="qa"><h3>${esc(f.q)}</h3><p>${esc(f.a)}</p></div>`)
+      .join('')}</details>` : ''}
+    ${nutritionFold(food, nut)}
+    <details class="fold" id="sources">
+      <summary><h2>Sources &amp; method <span class="count">${(v.sources ?? []).length}</span></h2></summary>
+      <p>${evidence} Confidence: <strong>${esc(v.confidence)}</strong>. Rated on the <a href="${url('feeding-scale/')}">JOMIZOO Feeding Scale</a>; when good sources disagree we choose the more cautious level.</p>
+      ${sourceList(v.sources ?? [], sources)}
+    </details>
     <section class="block">
-      <h2>Can other pets eat ${esc(q)}?</h2>
+      <h2>Other pets</h2>
       <div class="others">${others
         .map((o) => {
           const ov = food.verdicts[o.id];
-          return `<a class="other" href="${url(foodPath(o, food))}"><span class="other__q">Can ${esc(o.plural)} eat ${esc(q)}?</span>${pill(ov.status)}<span class="other__a">${esc(ov.short)}</span></a>`;
+          return `<a class="other" href="${url(foodPath(o, food))}"><span>Can ${esc(o.plural)} eat ${esc(q)}?</span>${pill(ov.status)}</a>`;
         })
         .join('')}</div>
     </section>
     <section class="block">
-      <h2>More ${esc(cat.name.toLowerCase())} for ${esc(sp.plural)}</h2>
-      <div class="cards cards--small">${related.map((f) => foodCard(f, sp, f.verdicts[sp.id], { level: 'h3' })).join('')}</div>
-      <p><a href="${url(speciesPath(sp))}">See all ${data.foods.length} foods rated for ${esc(sp.plural)} →</a></p>
+      <h2>More ${esc(cat.name.toLowerCase())}</h2>
+      <div class="rail">${related.map((f) => tile(f, sp, f.verdicts[sp.id])).join('')}</div>
+      <p class="more"><a href="${url(speciesPath(sp))}">All ${data.foods.length} foods for ${esc(sp.plural)} →</a></p>
     </section>
-    <section class="block" id="sources">
-      <h2>Sources &amp; method</h2>
-      <p>${evidence} Confidence: <strong>${esc(v.confidence)}</strong>. Verdicts follow the <a href="${url('feeding-scale/')}">JOMIZOO Feeding Scale</a>; when reputable sources disagree we use the more cautious rating.</p>
-      ${sourceList(v.sources ?? [], sources)}
-    </section>
-    <section class="block cite">
-      <h2>Cite this page</h2>
-      <p class="cite__text"><span>JOMIZOO (${data.updated.slice(0, 4)}). <em>Can ${esc(sp.plural)} eat ${esc(q)}?</em> ${esc(SITE.name)}. ${abs(path)}</span></p>
-      <p class="muted">Last updated ${data.updated}. Written by the JOMIZOO team from the sources above; not yet reviewed by a veterinarian. Not veterinary advice — if in doubt, ask an exotic-animal vet. Spotted a mistake? <a href="${SITE.repo}/issues/new?labels=correction&amp;title=${encodeURIComponent(`Correction: ${sp.plural} + ${q}`)}">Tell us on GitHub</a>.</p>
-    </section>
+    <footer class="fineprint">
+      <p>Updated ${data.updated}. Written by the JOMIZOO team from the sources above; not yet reviewed by a veterinarian. <a href="${SITE.repo}/issues/new?labels=correction&amp;title=${encodeURIComponent(`Correction: ${sp.plural} + ${q}`)}">Report a mistake</a>.</p>
+      <p class="cite">Cite: JOMIZOO (${data.updated.slice(0, 4)}). <em>Can ${esc(sp.plural)} eat ${esc(q)}?</em> ${esc(SITE.name)}. ${abs(path)}</p>
+    </footer>
   </div>
 </article>`;
 
-  return layout({
-    title,
-    description: v.short,
-    path,
-    body,
-    jsonld: [pageLd, faqLd],
-    ogImage: `img/og/${food.id}.jpg`,
-    assets,
-    bodyClass: 'page-food',
-  });
+  return layout({ title, description: v.short, path, body, jsonld: [pageLd, faqLd], ogImage: `img/og/${food.id}.jpg`, assets, bodyClass: 'page-food' });
 }
 
 export function speciesPage(ctx, sp) {
@@ -318,20 +307,18 @@ export function speciesPage(ctx, sp) {
   const counts = Object.fromEntries(VERDICT_ORDER.map((s) => [s, data.foods.filter((f) => f.verdicts[sp.id].status === s).length]));
   const bc = crumbs([{ name: 'Home', path: '' }, { name: `${cap(sp.name)} foods`, path }]);
   const never = data.foods.filter((f) => f.verdicts[sp.id].status === 'no');
-  const table = data.categories
+  const hero = data.foods.find((f) => f.id === sp.heroFood);
+  const lists = data.categories
     .map((cat) => {
       const foods = data.foods.filter((f) => f.category === cat.id);
       return `<section class="block" id="${cat.id}">
   <h2>${esc(cat.name)}</h2>
-  <div class="table-wrap"><table class="list">
-    <thead><tr><th scope="col">Food</th><th scope="col">Verdict</th><th scope="col">Portion</th><th scope="col">How often</th></tr></thead>
-    <tbody>${foods
-      .map((f) => {
-        const v = f.verdicts[sp.id];
-        return `<tr data-verdict="${v.status}"><th scope="row"><a href="${url(foodPath(sp, f))}"><img src="${thumb(f)}" alt="" width="40" height="40" loading="lazy">${esc(f.name)}</a></th><td>${pill(v.status)}</td><td>${esc(v.portion ?? '—')}</td><td>${esc(v.frequency ?? '—')}</td></tr>`;
-      })
-      .join('')}</tbody>
-  </table></div>
+  <ul class="rows">${foods
+    .map((f) => {
+      const v = f.verdicts[sp.id];
+      return `<li><a href="${url(foodPath(sp, f))}"><img src="${thumb(f)}" alt="" width="48" height="48" loading="lazy"><span class="rows__t"><span class="rows__n">${esc(f.name)}</span>${v.portion ? `<span class="rows__p">${esc(v.portion)}${v.frequency ? ` · ${esc(v.frequency)}` : ''}</span>` : ''}</span>${pill(v.status)}</a></li>`;
+    })
+    .join('')}</ul>
 </section>`;
     })
     .join('\n');
@@ -348,29 +335,29 @@ export function speciesPage(ctx, sp) {
 
   const body = `${bc.html}
 <div class="wrap">
-  <header class="hub-hero">
-    <div>
+  <header class="top top--hub">
+    ${stage({ species: sp.id, food: hero?.id, verdict: hero?.verdicts[sp.id].status, poster: url(`img/stage-${sp.id}.webp`), label: `3D illustration of a ${sp.name}` })}
+    <div class="sheet">
       <p class="eyebrow">${esc(cap(sp.name))} food guide</p>
       <h1>What can ${esc(sp.plural)} eat?</h1>
       <p class="lead">${esc(sp.intro)}</p>
-      <ul class="tally">${VERDICT_ORDER.map((s) => `<li>${pill(s)}<strong>${counts[s]}</strong> <span>foods</span></li>`).join('')}</ul>
+      <ul class="tally">${VERDICT_ORDER.map((s) => `<li class="tally__${s}"><strong>${counts[s]}</strong>${pill(s)}</li>`).join('')}</ul>
     </div>
-    ${stage({ species: sp.id, food: sp.heroFood, verdict: data.foods.find((f) => f.id === sp.heroFood)?.verdicts[sp.id].status, poster: url(`img/stage-${sp.id}.webp`), label: `3D illustration of a ${sp.name}` })}
   </header>
 
-  <section class="block basics">
-    <h2>The basics of a healthy ${esc(sp.name)} diet</h2>
-    <ul>${sp.basics.map((b) => `<li>${esc(b)}</li>`).join('')}</ul>
-    ${sourceList(sp.sources, sources)}
+  <section class="block">
+    <h2>Never feed your ${esc(sp.name)}</h2>
+    <div class="rail">${never.map((f) => tile(f, sp, f.verdicts[sp.id])).join('')}</div>
   </section>
 
-  <section class="block never">
-    <h2>Never feed your ${esc(sp.name)}</h2>
-    <div class="cards cards--small">${never.map((f) => foodCard(f, sp, f.verdicts[sp.id])).join('')}</div>
-  </section>
+  <details class="fold" open>
+    <summary><h2>Diet basics</h2></summary>
+    <ul class="basics">${sp.basics.map((b) => `<li>${esc(b)}</li>`).join('')}</ul>
+    ${sourceList(sp.sources, sources)}
+  </details>
 
   <nav class="jump" aria-label="Categories">${data.categories.map((c) => `<a href="#${c.id}">${esc(c.name)}</a>`).join('')}</nav>
-  ${table}
+  ${lists}
 </div>`;
 
   return layout({ title, description, path, body, jsonld: [listLd, bc.ld], ogImage: `img/og/${sp.id}.jpg`, assets, bodyClass: 'page-hub' });
@@ -380,6 +367,7 @@ export function homePage(ctx) {
   const { data, assets } = ctx;
   const sp0 = data.species[0];
   const heroFood = data.foods.find((f) => f.id === 'apple') ?? data.foods[0];
+  const v0 = heroFood.verdicts[sp0.id];
   const index = data.foods.map((f) => ({
     id: f.id,
     n: f.name,
@@ -389,13 +377,13 @@ export function homePage(ctx) {
     v: Object.fromEntries(data.species.map((sp) => [sp.id, [f.verdicts[sp.id].status, f.verdicts[sp.id].short, f.verdicts[sp.id].portion ?? '', f.verdicts[sp.id].frequency ?? '']])),
   }));
   const species = data.species.map((s) => ({ id: s.id, name: s.name, plural: s.plural, path: url(speciesPath(s)) }));
-  const quick = ['apple', 'banana', 'grape', 'avocado', 'cheese', 'chocolate', 'broccoli', 'sunflower-seeds'];
+  const labels = Object.fromEntries(VERDICT_ORDER.map((s) => [s, [VERDICTS[s].label, VERDICTS[s].long]]));
+  const quick = ['apple', 'grape', 'banana', 'avocado', 'cheese', 'chocolate', 'broccoli', 'sunflower-seeds'];
 
   const body = `<section class="hero wrap">
-  <div class="hero__text">
-    <p class="eyebrow">Free · Sourced · Open data</p>
+  <div class="hero__panel">
     <h1>Can my pet eat this?</h1>
-    <p class="lead">Clear, sourced answers for <strong>hamsters</strong>, <strong>budgies</strong> and <strong>cockatiels</strong> — ${data.foods.length} foods, ${data.foods.length * data.species.length} verdicts, with portions, prep and what to do if something goes wrong.</p>
+    <p class="lead">Sourced answers for hamsters, budgies &amp; cockatiels. ${data.foods.length} foods, free &amp; open.</p>
     <form class="finder" role="search" action="${url()}" onsubmit="return false">
       <fieldset class="seg" data-species-picker>
         <legend class="sr-only">Your pet</legend>
@@ -403,55 +391,44 @@ export function homePage(ctx) {
       </fieldset>
       <div class="combo">
         <label for="q" class="sr-only">Food</label>
-        <input id="q" name="food" type="search" autocomplete="off" spellcheck="false" placeholder="Type a food — e.g. grapes, cheese, avocado" role="combobox" aria-expanded="false" aria-controls="q-list" aria-autocomplete="list">
+        <input id="q" name="food" type="search" enterkeyhint="search" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type a food…" role="combobox" aria-expanded="false" aria-controls="q-list" aria-autocomplete="list">
         <ul id="q-list" class="combo__list" role="listbox" hidden></ul>
       </div>
-      <p class="quick">Try: ${quick
+      <div class="quick" aria-label="Popular">${quick
         .map((id) => data.foods.find((f) => f.id === id))
         .filter(Boolean)
         .map((f) => `<button type="button" class="chip" data-pick="${f.id}">${esc(f.name.replace(/ \(.*\)/, ''))}</button>`)
-        .join('')}</p>
+        .join('')}</div>
     </form>
-    <div class="result" aria-live="polite" data-result>
-      <div class="answer answer--${heroFood.verdicts[sp0.id].status}">
-        ${pill(heroFood.verdicts[sp0.id].status)}
-        <p class="answer__text"><strong>Can ${sp0.plural} eat ${foodQ(heroFood)}?</strong> ${esc(heroFood.verdicts[sp0.id].short)}</p>
-      </div>
-      <a class="result__more" href="${url(foodPath(sp0, heroFood))}">Portion, prep &amp; sources →</a>
+  </div>
+  <div class="hero__show">
+    ${stage({ species: sp0.id, food: heroFood.id, verdict: v0.status, poster: url(`img/stage-${sp0.id}.webp`), label: 'A 3D hamster on paper bedding next to a dish of apples' })}
+    <div class="answer answer--${v0.status} answer--sheet" aria-live="polite" data-result>
+      ${pill(v0.status, VERDICTS[v0.status].long)}
+      <p class="answer__text"><strong>Can ${sp0.plural} eat ${foodQ(heroFood)}?</strong> ${esc(v0.short)}</p>
+      <a class="answer__more" href="${url(foodPath(sp0, heroFood))}">Portion, prep &amp; sources →</a>
     </div>
   </div>
-  ${stage({ species: sp0.id, food: heroFood.id, verdict: heroFood.verdicts[sp0.id].status, poster: url(`img/stage-${sp0.id}.webp`), label: 'A 3D hamster on paper bedding next to a food dish' })}
-</section>
-
-<section class="wrap block scale-strip" aria-labelledby="scale-h">
-  <h2 id="scale-h">How to read a verdict</h2>
-  <ol class="scale">${VERDICT_ORDER.map((s) => `<li class="scale__item scale__item--${s}">${pill(s)}<p>${esc(VERDICTS[s].scale)}</p></li>`).join('')}</ol>
-  <p class="muted">This is the <a href="${url('feeding-scale/')}">JOMIZOO Feeding Scale</a>. Where reputable sources disagree, we pick the more cautious level.</p>
 </section>
 
 <section class="wrap block" aria-labelledby="all-h">
   <div class="grid-head">
-    <h2 id="all-h">All ${data.foods.length} foods for <span data-species-name>${esc(sp0.plural)}</span></h2>
-    <div class="filters" role="group" aria-label="Filter by category">
-      <button type="button" class="chip is-on" data-cat="all">All</button>
-      ${data.categories.map((c) => `<button type="button" class="chip" data-cat="${c.id}">${esc(c.name)}</button>`).join('')}
-    </div>
+    <h2 id="all-h">All foods for <span data-species-name>${esc(sp0.plural)}</span></h2>
+    ${legend()}
   </div>
-  <div class="cards" data-grid>
-    ${data.foods.map((f) => foodCard(f, sp0, f.verdicts[sp0.id])).join('\n    ')}
+  <div class="filters" role="group" aria-label="Filter by category">
+    <button type="button" class="chip is-on" data-cat="all">All</button>
+    ${data.categories.map((c) => `<button type="button" class="chip" data-cat="${c.id}">${esc(c.name)}</button>`).join('')}
+  </div>
+  <div class="tiles" data-grid>
+    ${data.foods.map((f) => tile(f, sp0, f.verdicts[sp0.id])).join('\n    ')}
   </div>
 </section>
 
-<section class="wrap block trust" aria-labelledby="trust-h">
-  <h2 id="trust-h">Why you can trust these answers</h2>
-  <div class="trust__grid">
-    <div><h3>Every verdict is sourced</h3><p>Each answer links to the veterinary and animal-welfare sources it is based on, and says openly when a verdict is reasoned from general principles instead.</p></div>
-    <div><h3>Cautious by design</h3><p>When good sources disagree, we choose the safer rating. Portions are given for the smallest common body size of each species.</p></div>
-    <div><h3>Open and correctable</h3><p>The full dataset is free to reuse under CC BY 4.0, and anyone can <a href="${SITE.repo}/issues">report a mistake on GitHub</a>.</p></div>
-    <div><h3>Made by pet people</h3><p>${esc(BRAND.about)} <a href="${url('about/')}">Why we built this</a>.</p></div>
-  </div>
+<section class="wrap block trust">
+  <p><strong>Every verdict is sourced</strong> from veterinary and animal-welfare guidance, and <strong>cautious by design</strong>: when sources disagree, we pick the safer rating. <a href="${url('feeding-scale/')}">How we rate</a> · <a href="${url('data/')}">Open data</a> · <a href="${SITE.repo}">GitHub</a></p>
 </section>
-<script type="application/json" id="food-index">${JSON.stringify({ base: BASE, species, foods: index }).replace(/</g, '\\u003c')}</script>`;
+<script type="application/json" id="food-index">${JSON.stringify({ base: BASE, species, labels, foods: index }).replace(/</g, '\\u003c')}</script>`;
 
   const appLd = {
     '@type': 'WebApplication',

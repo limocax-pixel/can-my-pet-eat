@@ -8,7 +8,10 @@
 ![Code: MIT](https://img.shields.io/badge/code-MIT-2c7a57)
 ![Data: CC BY 4.0](https://img.shields.io/badge/data-CC%20BY%204.0-e98b5a)
 
-![A 3D hamster on paper bedding next to a dish of apples, with a "small amounts" badge](docs/preview.jpg)
+<p>
+  <img src="docs/preview.jpg" alt="Desktop: a 3D hamster on paper bedding next to a dish of apples, with a 'small amounts' thought bubble" width="68%">
+  <img src="docs/mobile.jpg" alt="Phone: 'Can hamsters eat grapes?' — a hamster turning away from grapes on a red-tinted set, verdict Never" width="28%">
+</p>
 
 Type a food, pick your pet, and get an answer you can act on:
 
@@ -17,7 +20,7 @@ Type a food, pick your pet, and get an answer you can act on:
 - **Preparation steps**, **risks** in plain language, and **what to do if your pet already ate it**
 - **Every verdict is sourced** (VCA Animal Hospitals, Merck Veterinary Manual, avian-vet publications, RSPCA, PDSA, Blue Cross, peer-reviewed papers…) and labelled *direct* or *inferred*, with a confidence level
 - **USDA nutrition data** per 100 g on every food page (sugar, fat, calcium : phosphorus…)
-- An interactive **three.js scene**: the hamster, budgie or cockatiel hops happily, nibbles, tilts its head or turns away depending on the verdict. Every food is a procedural 3D model, with no downloaded assets.
+- An interactive **three.js scene**, built mobile-first: the whole studio set turns green, amber, orange or red with the verdict, and the pet hops, nibbles, tilts its head or turns away, with a verdict "thought bubble". Drag to turn, tilt your phone, tap the pet or the food. Every food is a procedural 3D model, with no downloaded assets.
 
 ## Why it exists
 

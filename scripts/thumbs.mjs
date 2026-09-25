@@ -45,10 +45,10 @@ const heroFood = { hamster: 'apple', budgie: 'broccoli', cockatiel: 'broccoli' }
 if (want('stage')) {
   for (const sp of data.species) {
     const food = data.foods.find((f) => f.id === heroFood[sp.id]);
-    await page.goto(`${origin}/render.html?mode=stage&species=${sp.id}&food=${food.id}&v=${food.verdicts[sp.id].status}&w=880&h=600`);
+    await page.goto(`${origin}/render.html?mode=stage&species=${sp.id}&food=${food.id}&v=${food.verdicts[sp.id].status}&w=900&h=740&settle=1`);
     await page.waitForSelector('body[data-ready]');
-    await page.waitForTimeout(2600);
-    save(join(pub, `stage-${sp.id}.webp`), await page.evaluate(() => window.snapshot()));
+    await page.waitForTimeout(1800);
+    save(join(pub, `stage-${sp.id}.webp`), await page.evaluate(() => window.snapshot(0.82)));
   }
   console.log('stage posters: done');
 }

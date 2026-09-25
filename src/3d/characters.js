@@ -33,6 +33,13 @@ function blinker(eyes) {
 
 const damp = (cur, target, k, dt) => cur + (target - cur) * (1 - Math.exp(-k * dt));
 
+/** Vertical scale for bouncy hops: squash on the ground, stretch in the air. */
+function squashStretch(mood, moodT, freq, dur) {
+  if (mood !== 'happy') return 1;
+  const k = Math.max(0, 1 - moodT / dur);
+  return 1 - 0.13 * k * Math.cos(2 * ((moodT * freq) % Math.PI));
+}
+
 // ───────────────────────────── Hamster ─────────────────────────────
 export function buildHamster({ fur = '#e0924a', cream = '#fff1df' } = {}) {
   const FUR = mat(fur, { sheen: true, rough: 0.9 });
@@ -107,7 +114,8 @@ export function buildHamster({ fur = '#e0924a', cream = '#fff1df' } = {}) {
   function update(t, dt, mood, moodT) {
     blink(t, dt);
     const breathe = Math.sin(t * 3.2) * 0.012;
-    bodyG.scale.set(1 + breathe, 1 - breathe * 0.6, 1 + breathe);
+    const sy = squashStretch(mood, moodT, 7, 2.4);
+    bodyG.scale.set((1 + breathe) / Math.sqrt(sy), (1 - breathe * 0.6) * sy, (1 + breathe) / Math.sqrt(sy));
     nose.position.y = 0.14 + Math.sin(t * 22) * 0.008 * (mood === 'refuse' ? 0 : 1);
     nose.position.z = 1.07 + Math.sin(t * 22 + 1) * 0.01;
     ears.forEach((e, i) => (e.rotation.x = -0.15 + Math.max(0, Math.sin(t * 1.3 + i * 2) - 0.97) * 6));
@@ -280,14 +288,15 @@ function buildBird(o) {
   function update(t, dt, mood, moodT) {
     blink(t, dt);
     const breathe = Math.sin(t * 4) * 0.012;
-    bodyG.scale.set(1 + breathe, 1, 1 + breathe);
+    const sy = squashStretch(mood, moodT, 6, 2);
+    bodyG.scale.set((1 + breathe) / Math.sqrt(sy), sy, (1 + breathe) / Math.sqrt(sy));
     tail.rotation.x = -0.62 + Math.sin(t * 2.1) * 0.03;
 
     let lean = -0.18, turn = Math.sin(t * 0.6) * 0.18, tilt = Math.sin(t * 0.9) * 0.08, hop = 0, flap = 0, shake = 0;
     const idleCock = Math.max(0, Math.sin(t * 0.45) - 0.8) * 2.2; // occasional curious head tilt
     tilt += idleCock * 0.35;
     if (mood === 'happy') { hop = Math.abs(Math.sin(moodT * 6)) * 0.22 * Math.max(0, 1 - moodT / 2); flap = moodT < 1.4 ? 1 : 0; lean = 0.05; turn = 0.35; }
-    else if (mood === 'nibble') { lean = 0.28; turn = 0.45; tilt = 0.1 + Math.sin(moodT * 9) * 0.05; }
+    else if (mood === 'nibble') { lean = 0.3 + Math.max(0, Math.sin(moodT * 6)) * 0.18; turn = 0.5; tilt = 0.1 + Math.sin(moodT * 9) * 0.05; }
     else if (mood === 'unsure') { tilt = 0.55; turn = 0.3; }
     else if (mood === 'refuse') { turn = -0.7; lean = -0.3; shake = moodT < 1.5 ? Math.sin(moodT * 20) * 0.3 * (1 - moodT / 1.5) : 0; flap = moodT < 0.6 ? 0.6 : 0; }
 

@@ -1,8 +1,8 @@
 // Progressive enhancement: every page works without JavaScript. This adds the
-// 3D stage, the food finder on the home page, and card tilt.
+// 3D stage, the food finder on the home page, and tile tilt.
 
-const LABELS = { yes: 'Yes', limit: 'Small amounts', avoid: 'Better not', no: 'Never' };
 const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const narrow = matchMedia('(max-width: 899px)');
 
 // ── 3D stages (three.js is loaded only when a stage scrolls into view) ──
 let scenePromise;
@@ -33,15 +33,17 @@ async function mountStage(el) {
   const { createStage } = await loadScene();
   const d = el.dataset;
   const stage = createStage(el, { species: d.species, food: d.food, verdict: d.verdict });
-  el.classList.add('is-live');
+  requestAnimationFrame(() => el.classList.add('is-live'));
   stages.set(el, stage);
 }
+
+const icon = (s) => `<svg class="pill__i" aria-hidden="true"><use href="#i-${s}"/></svg>`;
 
 // ── Home: food finder ──────────────────────────────────────────────
 function initFinder() {
   const dataEl = document.getElementById('food-index');
   if (!dataEl) return;
-  const { base, species, foods } = JSON.parse(dataEl.textContent);
+  const { base, species, labels, foods } = JSON.parse(dataEl.textContent);
   const byId = Object.fromEntries(foods.map((f) => [f.id, f]));
   const spById = Object.fromEntries(species.map((s) => [s.id, s]));
   const input = document.getElementById('q');
@@ -52,7 +54,7 @@ function initFinder() {
   const radios = [...document.querySelectorAll('[data-species-picker] input')];
 
   const params = new URLSearchParams(location.search);
-  let pet = spById[params.get('pet')] ? params.get('pet') : safeGet('pet') ?? species[0].id;
+  let pet = spById[params.get('pet')] ? params.get('pet') : safeGet('pet');
   if (!spById[pet]) pet = species[0].id;
   let current = byId[params.get('food')] ?? foods.find((f) => f.s === params.get('food')) ?? byId.apple ?? foods[0];
   let active = -1;
@@ -92,9 +94,9 @@ function initFinder() {
     list.innerHTML = matches.length
       ? matches.map((f, i) => {
           const [st] = f.v[pet];
-          return `<li role="option" id="opt-${f.id}" data-id="${f.id}" aria-selected="${i === active}"><img src="${base}img/foods/${f.id}.webp" alt="" width="32" height="32"><span>${esc(f.n)}</span><span class="pill pill--${st}"><span class="pill__dot"></span>${LABELS[st]}</span></li>`;
+          return `<li role="option" id="opt-${f.id}" data-id="${f.id}" aria-selected="${i === active}"><img src="${base}img/foods/${f.id}.webp" alt="" width="34" height="34"><span>${esc(f.n)}</span><span class="pill pill--${st}">${icon(st)}${labels[st][0]}</span></li>`;
         }).join('')
-      : `<li class="combo__empty">We haven’t rated “${esc(q)}” yet. <a href="https://github.com/limocax-pixel/can-my-pet-eat/issues/new?labels=food-request&title=${encodeURIComponent('Food request: ' + q)}" target="_blank" rel="noopener">Request it on GitHub</a></li>`;
+      : `<li class="combo__empty">We haven’t rated “${esc(q)}” yet. <a href="https://github.com/limocax-pixel/can-my-pet-eat/issues/new?labels=food-request&title=${encodeURIComponent('Food request: ' + q)}" target="_blank" rel="noopener">Request it</a></li>`;
     list.hidden = false;
     input.setAttribute('aria-expanded', 'true');
     input.setAttribute('aria-activedescendant', active >= 0 ? `opt-${matches[active].id}` : '');
@@ -120,18 +122,23 @@ function initFinder() {
     else if (e.key === 'Enter') { e.preventDefault(); if (matches[active]) pick(matches[active].id); else renderList(); }
     else if (e.key === 'Escape') closeList();
   });
-  list.addEventListener('mousedown', (e) => {
+  // keep focus in the input while tapping an option, then pick on click so the
+  // tap can't "fall through" to whatever sits under the list once it closes
+  list.addEventListener('pointerdown', (e) => { if (e.target.closest('[data-id]')) e.preventDefault(); });
+  list.addEventListener('click', (e) => {
     const li = e.target.closest('[data-id]');
-    if (li) { e.preventDefault(); pick(li.dataset.id); }
+    if (li) pick(li.dataset.id);
   });
-  input.addEventListener('blur', () => setTimeout(closeList, 120));
+  input.addEventListener('blur', () => setTimeout(closeList, 150));
   document.querySelectorAll('[data-pick]').forEach((b) => b.addEventListener('click', () => pick(b.dataset.pick)));
 
   function pick(id) {
     current = byId[id];
     input.value = current.n;
     closeList();
+    input.blur(); // closes the phone keyboard so the answer is visible
     update(true);
+    reveal();
   }
 
   function setPet(id) {
@@ -141,18 +148,29 @@ function initFinder() {
     updateGrid();
   }
 
+  // On phones, make sure the pet and the answer are on screen after a pick.
+  function reveal() {
+    if (!narrow.matches) return;
+    const r = result.getBoundingClientRect();
+    if (r.bottom > innerHeight || stageEl.getBoundingClientRect().top < 0) {
+      stageEl.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+    }
+  }
+
   function update(push) {
     const sp = spById[pet];
-    const [st, short, portion, freq] = current.v[pet];
+    const [st, short] = current.v[pet];
     const q = current.s.replace(/-/g, ' ');
     const href = `${base}can-${sp.plural}-eat/${current.s}/`;
-    result.innerHTML = `<div class="answer answer--${st}"><span class="pill pill--${st}"><span class="pill__dot"></span>${LABELS[st]}</span><p class="answer__text"><strong>Can ${sp.plural} eat ${esc(q)}?</strong> ${esc(short)}</p>${
-      portion ? `<dl class="facts facts--mini"><div><dt>Portion</dt><dd>${esc(portion)}</dd></div><div><dt>How often</dt><dd>${esc(freq)}</dd></div></dl>` : ''
-    }</div><a class="result__more" href="${href}">Portion, prep &amp; sources →</a>`;
-    result.classList.remove('flash'); void result.offsetWidth; result.classList.add('flash');
+    result.className = `answer answer--${st} answer--sheet`;
+    result.innerHTML = `<span class="pill pill--${st}">${icon(st)}${labels[st][1]}</span><p class="answer__text"><strong>Can ${sp.plural} eat ${esc(q)}?</strong> ${esc(short)}</p><a class="answer__more" href="${href}">Portion, prep &amp; sources →</a>`;
+    void result.offsetWidth;
+    result.classList.add('flash');
     const stage = stages.get(stageEl);
+    stageEl.dataset.species = pet;
+    stageEl.dataset.food = current.id;
+    stageEl.dataset.verdict = st;
     if (stage) { stage.setSpecies(pet); stage.setFood(current.id, st); }
-    else if (stageEl) { stageEl.dataset.species = pet; stageEl.dataset.food = current.id; stageEl.dataset.verdict = st; }
     if (push) {
       const u = new URL(location.href);
       u.searchParams.set('pet', pet);
@@ -164,13 +182,14 @@ function initFinder() {
   function updateGrid() {
     const sp = spById[pet];
     document.querySelectorAll('[data-species-name]').forEach((el) => (el.textContent = sp.plural));
-    grid.querySelectorAll('.card').forEach((card) => {
-      const f = byId[card.dataset.food];
+    grid.querySelectorAll('.tile').forEach((tile) => {
+      const f = byId[tile.dataset.food];
       const [st] = f.v[pet];
-      card.href = `${base}can-${sp.plural}-eat/${f.s}/`;
-      const p = card.querySelector('.pill');
-      p.className = `pill pill--${st}`;
-      p.innerHTML = `<span class="pill__dot"></span>${LABELS[st]}`;
+      tile.href = `${base}can-${sp.plural}-eat/${f.s}/`;
+      tile.dataset.v = st;
+      const badge = tile.querySelector('.tile__badge');
+      badge.title = labels[st][0];
+      badge.innerHTML = `<svg aria-hidden="true"><use href="#i-${st}"/></svg><span class="sr-only">${labels[st][0]}</span>`;
     });
   }
 
@@ -178,8 +197,8 @@ function initFinder() {
   document.querySelectorAll('[data-cat]').forEach((b) => b.addEventListener('click', () => {
     document.querySelectorAll('[data-cat]').forEach((x) => x.classList.toggle('is-on', x === b));
     const cat = b.dataset.cat;
-    grid.querySelectorAll('.card').forEach((card) => {
-      card.hidden = cat !== 'all' && byId[card.dataset.food].c !== cat;
+    grid.querySelectorAll('.tile').forEach((tile) => {
+      tile.hidden = cat !== 'all' && byId[tile.dataset.food].c !== cat;
     });
   }));
 
@@ -187,17 +206,17 @@ function initFinder() {
   if (params.get('food')) input.value = current.n;
 }
 
-// ── CSS 3D tilt on cards ──────────────────────────────────────────
+// ── CSS 3D tilt on tiles (mouse only) ─────────────────────────────
 function initTilt() {
-  if (reduceMotion || matchMedia('(hover: none)').matches) return;
+  if (reduceMotion || !matchMedia('(hover: hover) and (pointer: fine)').matches) return;
   document.addEventListener('pointermove', (e) => {
     const card = e.target.closest?.('.tilt');
     if (!card) return;
     const r = card.getBoundingClientRect();
     const x = (e.clientX - r.left) / r.width - 0.5;
     const y = (e.clientY - r.top) / r.height - 0.5;
-    card.style.setProperty('--ry', `${x * 14}deg`);
-    card.style.setProperty('--rx', `${-y * 14}deg`);
+    card.style.setProperty('--ry', `${x * 16}deg`);
+    card.style.setProperty('--rx', `${-y * 16}deg`);
     card.style.setProperty('--gx', `${(x + 0.5) * 100}%`);
     card.style.setProperty('--gy', `${(y + 0.5) * 100}%`);
   });

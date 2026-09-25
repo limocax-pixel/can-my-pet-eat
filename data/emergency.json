@@ -1,0 +1,5 @@
+[
+  { "name": "ASPCA Animal Poison Control Center", "region": "USA", "phone": "(888) 426-4435", "note": "24/7, a consultation fee may apply.", "url": "https://www.aspca.org/pet-care/animal-poison-control" },
+  { "name": "Pet Poison Helpline", "region": "USA & Canada", "phone": "(855) 764-7661", "note": "24/7, per-incident fee.", "url": "https://www.petpoisonhelpline.com/" },
+  { "name": "Animal PoisonLine", "region": "UK", "phone": "01202 509000", "note": "24/7 triage by the Veterinary Poisons Information Service, per-call fee.", "url": "https://www.animalpoisonline.co.uk/" }
+]

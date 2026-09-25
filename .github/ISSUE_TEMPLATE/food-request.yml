@@ -1,0 +1,19 @@
+name: Food request
+description: Ask us to rate a food that isn't listed yet
+title: "Food request: "
+labels: [food-request]
+body:
+  - type: input
+    id: food
+    attributes:
+      label: Food
+    validations:
+      required: true
+  - type: checkboxes
+    id: species
+    attributes:
+      label: For which pets?
+      options:
+        - label: Hamster
+        - label: Budgie
+        - label: Cockatiel

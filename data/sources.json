@@ -1,0 +1,520 @@
+[
+  {
+    "id": "rspca-hamster-diet",
+    "title": "What to feed hamsters",
+    "publisher": "RSPCA",
+    "url": "https://www.rspca.org.uk/adviceandwelfare/pets/rodents/hamsters/diet",
+    "type": "charity"
+  },
+  {
+    "id": "pdsa-hamsters",
+    "title": "Hamsters as pets",
+    "publisher": "PDSA",
+    "url": "https://www.pdsa.org.uk/pet-help-and-advice/looking-after-your-pet/small-pets/hamsters-as-pets",
+    "type": "charity"
+  },
+  {
+    "id": "bluecross-hamster-care",
+    "title": "Hamster care",
+    "publisher": "Blue Cross",
+    "url": "https://www.bluecross.org.uk/advice/hamster/hamster-care",
+    "type": "charity"
+  },
+  {
+    "id": "woodgreen-hamster-food",
+    "title": "What to feed your hamster - safe foods, fruit, veg and a complete feeding guide",
+    "publisher": "Woodgreen Pets Charity",
+    "url": "https://woodgreen.org.uk/pet-advice/hamster/what-to-feed-your-hamster/",
+    "type": "charity"
+  },
+  {
+    "id": "vca-owning-hamster",
+    "title": "Owning a Pet Hamster",
+    "publisher": "VCA Animal Hospitals (Gregory Rich, DVM; Laurie Hess, DVM; Rick Axelson, DVM)",
+    "url": "https://vcahospitals.com/know-your-pet/owning-a-pet-hamster",
+    "type": "veterinary"
+  },
+  {
+    "id": "vca-rodents-feeding",
+    "title": "Rodents: Feeding",
+    "publisher": "VCA Animal Hospitals (Gregory Rich, DVM; Laurie Hess, DVM; Rick Axelson, DVM)",
+    "url": "https://vcahospitals.com/know-your-pet/feeding-rodents",
+    "type": "veterinary"
+  },
+  {
+    "id": "merck-hamster-home",
+    "title": "Providing a Home for a Hamster",
+    "publisher": "Merck Veterinary Manual (Pet Owner Version)",
+    "url": "https://www.merckvetmanual.com/all-other-pets/hamsters/providing-a-home-for-a-hamster",
+    "type": "veterinary"
+  },
+  {
+    "id": "ucdavis-hamster-care-sheet",
+    "title": "Hamster Care Sheet",
+    "publisher": "UC Davis Veterinary Medical Teaching Hospital, Companion Avian and Exotic Pet Medicine and Surgery Service (PDF hosted by Wise Owl Animal Hospital)",
+    "url": "https://www.wiseowl.net/storage/app/media/_wiseowl/hamster-care-sheet.pdf",
+    "type": "veterinary"
+  },
+  {
+    "id": "petmd-dwarf-hamster-care",
+    "title": "Dwarf Hamster Care Sheet",
+    "publisher": "PetMD (written by Maria Zayas, DVM; reviewed by Melissa Witherell, DVM)",
+    "url": "https://www.petmd.com/exotic/dwarf-hamster-care-sheet",
+    "type": "veterinary"
+  },
+  {
+    "id": "petmd-syrian-hamster-care",
+    "title": "Syrian Hamster Care Sheet",
+    "publisher": "PetMD (written by Maria Zayas, DVM)",
+    "url": "https://www.petmd.com/exotic/syrian-hamster-care-sheet",
+    "type": "veterinary"
+  },
+  {
+    "id": "petmd-what-can-hamsters-eat",
+    "title": "What Can Hamsters Eat?",
+    "publisher": "PetMD (written by Angelina Childree, LVT; reviewed by Melissa Witherell, DVM)",
+    "url": "https://www.petmd.com/exotic/what-can-hamsters-eat",
+    "type": "veterinary"
+  },
+  {
+    "id": "northgate-vet-hamster-diet",
+    "title": "Can Hamsters Eat Broccoli & What to Feed Your Hamster",
+    "publisher": "Northgate Veterinary Clinic, Seattle",
+    "url": "https://www.northgateveterinary.com/site/blog/2022/06/30/what-feed-hamster",
+    "type": "veterinary"
+  },
+  {
+    "id": "dogwood-hamster-nutrition",
+    "title": "Hamster Nutrition",
+    "publisher": "Dogwood Animal Hospital, Lawrenceville, Georgia",
+    "url": "https://dogwoodanimalhospital.com/lawrenceville-ga-vet-hamster-nutrition/",
+    "type": "veterinary"
+  },
+  {
+    "id": "exocare-dwarf-diabetes",
+    "title": "Are Dwarf Hamsters Prone to Diabetes? Rodent Health Facts",
+    "publisher": "ExoCare Veterinary Medical Centre (medically reviewed by Dr Asma Fariha)",
+    "url": "https://exocarevet.com/dwarf-hamsters-diabetes/",
+    "type": "veterinary"
+  },
+  {
+    "id": "merck-allium-toxicosis",
+    "title": "Garlic and Onion (Allium spp) Toxicosis in Animals",
+    "publisher": "Merck Veterinary Manual (Cristine Hayes, DVM, ASPCA Animal Poison Control Center)",
+    "url": "https://www.merckvetmanual.com/toxicology/food-hazards/garlic-and-onion-allium-spp-toxicosis-in-animals",
+    "type": "veterinary"
+  },
+  {
+    "id": "merck-avocado-toxicosis",
+    "title": "Avocado (Persea spp) Toxicosis in Animals",
+    "publisher": "Merck Veterinary Manual",
+    "url": "https://www.merckvetmanual.com/toxicology/food-hazards/avocado-persea-spp-toxicosis-in-animals",
+    "type": "veterinary"
+  },
+  {
+    "id": "merck-grape-toxicosis",
+    "title": "Grape, Raisin, and Tamarind (Vitis spp, Tamarindus spp) Toxicosis in Dogs",
+    "publisher": "Merck Veterinary Manual",
+    "url": "https://www.merckvetmanual.com/toxicology/food-hazards/grape-raisin-and-tamarind-vitis-spp-tamarindus-spp-toxicosis-in-dogs",
+    "type": "veterinary"
+  },
+  {
+    "id": "aspca-apple",
+    "title": "Apple (toxic and non-toxic plants list)",
+    "publisher": "ASPCA Animal Poison Control Center",
+    "url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/apple",
+    "type": "veterinary"
+  },
+  {
+    "id": "aspca-cherry",
+    "title": "Cherry (toxic and non-toxic plants list)",
+    "publisher": "ASPCA Animal Poison Control Center",
+    "url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/cherry",
+    "type": "veterinary"
+  },
+  {
+    "id": "aspca-peach",
+    "title": "Peach (toxic and non-toxic plants list)",
+    "publisher": "ASPCA Animal Poison Control Center",
+    "url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/peach",
+    "type": "veterinary"
+  },
+  {
+    "id": "aspca-rhubarb",
+    "title": "Rhubarb (toxic and non-toxic plants list)",
+    "publisher": "ASPCA Animal Poison Control Center",
+    "url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/rhubarb",
+    "type": "veterinary"
+  },
+  {
+    "id": "aspca-tomato-plant",
+    "title": "Tomato Plant (toxic and non-toxic plants list)",
+    "publisher": "ASPCA Animal Poison Control Center",
+    "url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/tomato-plant",
+    "type": "veterinary"
+  },
+  {
+    "id": "gerritsen-1982-chinese-hamster-diabetes",
+    "title": "The Chinese hamster as a model for the study of diabetes mellitus (Gerritsen GC, Diabetes 1982;31 Suppl 1:14-23)",
+    "publisher": "Diabetes (American Diabetes Association) - PubMed record",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/6761191/",
+    "type": "paper"
+  },
+  {
+    "id": "voss-1978-djungarian-hamster-islets",
+    "title": "Fine structural studies of the islets of Langerhans in the Djungarian hamster (Phodopus sungorus) (Voss KM, Herberg L, Kern HF, Cell Tissue Res 1978)",
+    "publisher": "Cell and Tissue Research (Springer)",
+    "url": "https://link.springer.com/article/10.1007/BF00222428",
+    "type": "paper"
+  },
+  {
+    "id": "lagrange-2020-agaritine",
+    "title": "Warning on False or True Morels and Button Mushrooms with Potential Toxicity Linked to Hydrazinic Toxins: An Update (Lagrange E, Vernoux JP, Toxins 2020;12(8):482)",
+    "publisher": "Toxins (MDPI) - PubMed record",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/32751277/",
+    "type": "paper"
+  },
+  {
+    "id": "vetpartner-hamster",
+    "title": "Husbandry and Medical Care of Hamsters",
+    "publisher": "Veterinary Partner (VIN)",
+    "url": "https://veterinarypartner.vin.com/default.aspx?pid=19239&id=9610265",
+    "type": "veterinary"
+  },
+  {
+    "id": "ucdavis-hamster-care",
+    "title": "Hamster Care",
+    "publisher": "UC Davis School of Veterinary Medicine",
+    "url": "https://healthtopics.vetmed.ucdavis.edu/health-topics/exotics/hamster-care",
+    "type": "veterinary"
+  },
+  {
+    "id": "medvet-hamster",
+    "title": "Hamster Information and Care Recommendations",
+    "publisher": "MedVet",
+    "url": "https://www.medvet.com/hamster-information-care-recommendations/",
+    "type": "veterinary"
+  },
+  {
+    "id": "pdsa-hamster-diet",
+    "title": "Feeding your hamster",
+    "publisher": "PDSA",
+    "url": "https://www.pdsa.org.uk/pet-help-and-advice/looking-after-your-pet/small-pets/your-hamsters-diet",
+    "type": "charity"
+  },
+  {
+    "id": "sdhumane-hamster",
+    "title": "Hamster Care",
+    "publisher": "San Diego Humane Society",
+    "url": "https://sdhumane.org/resources/hamster-care/",
+    "type": "charity"
+  },
+  {
+    "id": "hss-tofu-cookie",
+    "title": "Tofu cookie treat (recipe)",
+    "publisher": "Hamster Society (Singapore)",
+    "url": "https://www.hamstersociety.sg/hamster-care-blog/2019/2/27/tofu-cookie-treat",
+    "type": "charity"
+  },
+  {
+    "id": "aspca-people-foods",
+    "title": "People Foods to Avoid Feeding Your Pets",
+    "publisher": "ASPCA Animal Poison Control Center",
+    "url": "https://www.aspca.org/pet-care/aspca-poison-control/people-foods-avoid-feeding-your-pets",
+    "type": "veterinary"
+  },
+  {
+    "id": "merck-chocolate",
+    "title": "Chocolate Toxicosis in Animals",
+    "publisher": "Merck Veterinary Manual",
+    "url": "https://www.merckvetmanual.com/toxicology/food-hazards/chocolate-toxicosis-in-animals",
+    "type": "veterinary"
+  },
+  {
+    "id": "merck-food-hazards",
+    "title": "Food Hazards",
+    "publisher": "Merck Veterinary Manual (Pet Owner Version)",
+    "url": "https://www.merckvetmanual.com/special-pet-topics/poisoning/food-hazards",
+    "type": "veterinary"
+  },
+  {
+    "id": "merck-salt",
+    "title": "Salt Toxicosis in Animals",
+    "publisher": "Merck Veterinary Manual",
+    "url": "https://www.merckvetmanual.com/toxicology/salt-toxicosis/salt-toxicosis-in-animals",
+    "type": "veterinary"
+  },
+  {
+    "id": "merck-aflatoxicosis",
+    "title": "Aflatoxicosis in Animals",
+    "publisher": "Merck Veterinary Manual",
+    "url": "https://www.merckvetmanual.com/toxicology/mycotoxicoses/aflatoxicosis-in-animals",
+    "type": "veterinary"
+  },
+  {
+    "id": "merck-tremorgenic",
+    "title": "Tremorgenic Neuromycotoxicosis in Dogs",
+    "publisher": "Merck Veterinary Manual",
+    "url": "https://www.merckvetmanual.com/toxicology/mycotoxicoses/tremorgenic-neuromycotoxicosis-in-dogs",
+    "type": "veterinary"
+  },
+  {
+    "id": "chaouali-2013-almonds",
+    "title": "Potential Toxic Levels of Cyanide in Almonds (Prunus amygdalus), Apricot Kernels (Prunus armeniaca), and Almond Syrup (Chaouali et al., ISRN Toxicology, 2013)",
+    "publisher": "ISRN Toxicology (via Europe PMC)",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3793392/",
+    "type": "paper"
+  },
+  {
+    "id": "frankel-1974-chinese-hamster",
+    "title": "Abnormal Secretion of Insulin and Glucagon by the In Vitro Perfused Pancreas of the Genetically Diabetic Chinese Hamster (Frankel et al., 1974)",
+    "publisher": "Journal of Clinical Investigation",
+    "url": "https://www.jci.org/articles/view/107714",
+    "type": "paper"
+  },
+  {
+    "id": "horn-2013-rodents-vomit",
+    "title": "Why Can't Rodents Vomit? A Comparative Behavioral, Anatomical, and Physiological Study (Horn et al., 2013)",
+    "publisher": "PLOS ONE",
+    "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0060537",
+    "type": "paper"
+  },
+  {
+    "id": "vca-budgie-feeding",
+    "title": "Feeding Budgies",
+    "publisher": "VCA Animal Hospitals",
+    "url": "https://vcahospitals.com/know-your-pet/budgies-feeding",
+    "type": "veterinary"
+  },
+  {
+    "id": "vca-cockatiel-feeding",
+    "title": "Feeding Pet Cockatiels",
+    "publisher": "VCA Animal Hospitals",
+    "url": "https://vcahospitals.com/know-your-pet/cockatiels-feeding",
+    "type": "veterinary"
+  },
+  {
+    "id": "vca-fruit-veg-birds",
+    "title": "Fruits and Vegetables in Birds' Diets",
+    "publisher": "VCA Animal Hospitals",
+    "url": "https://vcahospitals.com/know-your-pet/fruits-and-vegetables-in-bird-diets",
+    "type": "veterinary"
+  },
+  {
+    "id": "vca-obesity-birds",
+    "title": "Obesity in Birds",
+    "publisher": "VCA Animal Hospitals",
+    "url": "https://vcahospitals.com/know-your-pet/obesity-in-birds",
+    "type": "veterinary"
+  },
+  {
+    "id": "aav-basic-care",
+    "title": "Basic Care for Companion Birds",
+    "publisher": "Association of Avian Veterinarians",
+    "url": "https://cdn.ymaws.com/www.aav.org/resource/resmgr/pdf_2019/AAV_Basic-Care-for-Companion.pdf",
+    "type": "veterinary"
+  },
+  {
+    "id": "aav-feeding-birds",
+    "title": "Feeding Birds (client education handout)",
+    "publisher": "Association of Avian Veterinarians",
+    "url": "https://birdsandexotics.com/wp-content/uploads/2021/11/AAV-Feeding-Birds.pdf",
+    "type": "veterinary"
+  },
+  {
+    "id": "lafebervet-unsafe-foods",
+    "title": "Unsafe Foods for Birds",
+    "publisher": "LafeberVet",
+    "url": "https://lafeber.com/vet/wp-content/uploads/2019/10/Unsafe-Foods-Oct-2019.pdf",
+    "type": "veterinary"
+  },
+  {
+    "id": "lafebervet-toxic-plants",
+    "title": "Client education: Toxic plants",
+    "publisher": "LafeberVet",
+    "url": "https://lafeber.com/vet/wp-content/uploads/Toxic_Plant_list.pdf",
+    "type": "veterinary"
+  },
+  {
+    "id": "merck-nutritional-diseases-birds",
+    "title": "Nutritional Diseases of Pet Birds",
+    "publisher": "Merck Veterinary Manual",
+    "url": "https://www.merckvetmanual.com/exotic-and-laboratory-animals/pet-birds/nutritional-diseases-of-pet-birds",
+    "type": "veterinary"
+  },
+  {
+    "id": "merck-nutritional-disorders-owners",
+    "title": "Nutritional Disorders of Pet Birds (Bird Owners edition)",
+    "publisher": "Merck Veterinary Manual",
+    "url": "https://www.merckvetmanual.com/bird-owners/disorders-and-diseases-of-birds/nutritional-disorders-of-pet-birds",
+    "type": "veterinary"
+  },
+  {
+    "id": "merck-psittacine-nutrition",
+    "title": "Nutrition in Psittacines",
+    "publisher": "Merck Veterinary Manual",
+    "url": "https://www.merckvetmanual.com/management-and-nutrition/nutrition-exotic-and-zoo-animals/nutrition-in-psittacines",
+    "type": "veterinary"
+  },
+  {
+    "id": "pph-rhubarb",
+    "title": "Rhubarb",
+    "publisher": "Pet Poison Helpline",
+    "url": "https://www.petpoisonhelpline.com/poison/rhubarb/",
+    "type": "veterinary"
+  },
+  {
+    "id": "rspca-bird-diet",
+    "title": "What to Feed Your Pet Bird",
+    "publisher": "RSPCA",
+    "url": "https://www.rspca.org.uk/adviceandwelfare/pets/birds/diet",
+    "type": "charity"
+  },
+  {
+    "id": "uf-pet-bird-care",
+    "title": "How to care for your pet bird",
+    "publisher": "University of Florida Small Animal Hospital, College of Veterinary Medicine",
+    "url": "https://smallanimal.vethospital.ufl.edu/clinical-services/zoological-medicine/how-to-care-for-your-pet-bird",
+    "type": "veterinary"
+  },
+  {
+    "id": "rvc-budgie-care",
+    "title": "Budgerigar Care",
+    "publisher": "Royal Veterinary College Exotics Service",
+    "url": "https://www.rvc.ac.uk/Media/Default/Beaumont%20Sainsbury%20Animal%20Hospital/documents/Caring-for-your-budgie%20UPDATED%20Aug%202018-1.pdf",
+    "type": "veterinary"
+  },
+  {
+    "id": "petmd-toxic-foods-birds",
+    "title": "Foods That Are Toxic to Birds (Lauren Jones, VMD)",
+    "publisher": "PetMD",
+    "url": "https://www.petmd.com/bird/foods-are-toxic-birds",
+    "type": "veterinary"
+  },
+  {
+    "id": "petmd-cockatiel-care",
+    "title": "Cockatiel Care Sheet (Maria Zayas, DVM)",
+    "publisher": "PetMD",
+    "url": "https://www.petmd.com/bird/cockatiel-care-sheet",
+    "type": "veterinary"
+  },
+  {
+    "id": "ufifas-avian-goiter",
+    "title": "Avian Goiter (Thyroid Hyperplasia or Dysplasia)",
+    "publisher": "University of Florida IFAS Extension",
+    "url": "https://ask.ifas.ufl.edu/publication/VM029",
+    "type": "veterinary"
+  },
+  {
+    "id": "paper-loukopoulos-2015",
+    "title": "An outbreak of thyroid hyperplasia (goiter) with high mortality in budgerigars (Melopsittacus undulatus)",
+    "publisher": "Journal of Veterinary Diagnostic Investigation, 2015 (PubMed abstract, PMID 25428186)",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/25428186/",
+    "type": "paper"
+  },
+  {
+    "id": "paper-wade-2004",
+    "title": "Hemoglobinuric nephrosis and hepatosplenic erythrophagocytosis in a dusky-headed conure (Aratinga weddelli) after ingestion of garlic (Allium sativum)",
+    "publisher": "Journal of Avian Medicine and Surgery, 2004",
+    "url": "https://bioone.org/journals/Journal-of-Avian-Medicine-and-Surgery/volume-18/issue-3/2002-030/Hemoglobinuric-Nephrosis-and-Hepatosplenic-Erythrophagocytosis-in-a-Dusky-headed-Conure/10.1647/2002-030.short",
+    "type": "paper"
+  },
+  {
+    "id": "paper-jordt-2002",
+    "title": "Molecular basis for species-specific sensitivity to 'hot' chili peppers",
+    "publisher": "Cell, 2002 (record at Scholars@Duke)",
+    "url": "https://scholars.duke.edu/display/pub1003152",
+    "type": "paper"
+  },
+  {
+    "id": "vca-lipomas",
+    "title": "Tumors in Birds: Lipomas",
+    "publisher": "VCA Animal Hospitals (Gregory Rich, DVM; Rick Axelson, DVM)",
+    "url": "https://vcahospitals.com/know-your-pet/tumors---lipomas-in-birds",
+    "type": "veterinary"
+  },
+  {
+    "id": "merck-management",
+    "title": "Management of Pet Birds (professional version)",
+    "publisher": "Merck Veterinary Manual (Sharman M. Hoppes, DVM, DABVP Avian)",
+    "url": "https://www.merckvetmanual.com/exotic-and-laboratory-animals/pet-birds/management-of-pet-birds",
+    "type": "veterinary"
+  },
+  {
+    "id": "lafeber-toxic-foods",
+    "title": "Foods Toxic to Pet Birds",
+    "publisher": "Lafeber Company (Christal Pollock, DVM, Dipl. ABVP-Avian, with Laura Doering)",
+    "url": "https://lafeber.com/pet-birds/foods-toxic-pet-birds/",
+    "type": "veterinary"
+  },
+  {
+    "id": "lafebervet-healthy-diet",
+    "title": "Feeding Your Pet Bird a Healthy Diet (client education handout)",
+    "publisher": "LafeberVet (Christal Pollock, DVM, DABVP Avian Practice)",
+    "url": "https://lafeber.com/vet/wp-content/uploads/2023/06/Healthy-Diet3.pdf",
+    "type": "veterinary"
+  },
+  {
+    "id": "lafebervet-calcium",
+    "title": "Calcium in the Avian Patient",
+    "publisher": "LafeberVet (Christal Pollock, DVM, DABVP Avian Practice)",
+    "url": "https://lafeber.com/vet/calcium-in-the-avian-patient/",
+    "type": "veterinary"
+  },
+  {
+    "id": "lafeber-fresh-foraging",
+    "title": "Fresh Foraging Ideas To Try",
+    "publisher": "Lafeber Company (Stephanie Lamb, DVM, DABVP Avian Practice)",
+    "url": "https://lafeber.com/pet-birds/fresh-foraging-ideas-to-try/",
+    "type": "veterinary"
+  },
+  {
+    "id": "illinois-avian-nutrition",
+    "title": "Where Avian Nutrition and Health Intersect (Diet-related Disease in Pet Birds)",
+    "publisher": "University of Illinois College of Veterinary Medicine (Judilee C. Marrow, DVM, DACZM)",
+    "url": "https://vetmed.illinois.edu/2026/06/02/where-avian-nutrition-and-health-intersect/",
+    "type": "veterinary"
+  },
+  {
+    "id": "vcbe-toxic-items",
+    "title": "10 Everyday Items That Are Toxic to Birds",
+    "publisher": "Veterinary Center for Birds and Exotics (avian and exotic practice of Laurie Hess, DVM, DABVP Avian; practice blog, no individual byline)",
+    "url": "https://avianexoticsvet.com/blog/10-everyday-items-that-are-toxic-to-birds/",
+    "type": "veterinary"
+  },
+  {
+    "id": "perelman-1988-parsley",
+    "title": "Parsley-induced photosensitivity in ostriches and ducks (Perelman B, Kuttin ES. Avian Pathol. 1988;17(1):183-192)",
+    "publisher": "Avian Pathology (PubMed record)",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/18766676/",
+    "type": "paper"
+  },
+  {
+    "id": "gartrell-2007-chocolate-kea",
+    "title": "Death by chocolate: a fatal problem for an inquisitive wild parrot (Gartrell BD, Reid C. N Z Vet J. 2007;55(3):149-151)",
+    "publisher": "New Zealand Veterinary Journal (PubMed record)",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/17534419/",
+    "type": "paper"
+  },
+  {
+    "id": "gardner-2017-xylitol-sugarbirds",
+    "title": "Acute, fatal, presumptive xylitol toxicosis in Cape sugarbirds (Promerops cafer) (Gardner BR, Mitchell EP. J Avian Med Surg. 2017;31(4):356-358)",
+    "publisher": "Journal of Avian Medicine and Surgery (PubMed record)",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/29327962/",
+    "type": "paper"
+  },
+  {
+    "id": "bollinger-2005-salt-sparrows",
+    "title": "Toxicity of sodium chloride to house sparrows (Passer domesticus) (Bollinger TK, Mineau P, Wickstrom ML. J Wildl Dis. 2005;41(2):363-370)",
+    "publisher": "Journal of Wildlife Diseases (PubMed record)",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/16107671/",
+    "type": "paper"
+  },
+  {
+    "id": "finke-2015-feeder-insects",
+    "title": "Complete nutrient content of four species of commercially available feeder insects fed enhanced diets during growth (Finke MD. Zoo Biol. 2015;34(6):554-564)",
+    "publisher": "Zoo Biology (PubMed record)",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/26366856/",
+    "type": "paper"
+  }
+]

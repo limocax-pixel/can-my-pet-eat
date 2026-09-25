@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+title: "Can My Pet Eat This? Small-pet food safety dataset (hamsters, budgies, cockatiels)"
+message: "If you use this dataset, please cite it as below."
+type: dataset
+authors:
+  - name: JOMIZOO
+    website: "https://jomizoo.com/"
+repository-code: "https://github.com/limocax-pixel/can-my-pet-eat"
+url: "https://limocax-pixel.github.io/can-my-pet-eat/"
+license: CC-BY-4.0
+version: 1.0.0
+date-released: 2026-09-25
+keywords:
+  - hamster
+  - budgerigar
+  - cockatiel
+  - pet nutrition
+  - food safety
+  - toxic foods
+abstract: >-
+  Food-safety verdicts on a four-level scale (yes, small amounts, better not, never) for
+  68 foods across pet hamsters, budgies and cockatiels, with portions, preparation, risks,
+  source citations, evidence type and confidence, plus USDA nutrient values.

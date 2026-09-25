@@ -1,0 +1,19 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>render</title>
+<style>
+  html,body{margin:0;background:transparent}
+  body.og{width:1200px;height:630px;overflow:hidden;font-family:ui-rounded,"SF Pro Rounded",system-ui,sans-serif;color:#2a221d;
+    background:radial-gradient(700px 500px at 85% 30%,#fde3cf,transparent 70%),radial-gradient(600px 400px at 0% 100%,#dcefe3,transparent 70%),#fbf6ef}
+  .og-card{position:absolute;inset:0;display:grid;grid-template-columns:1fr 520px;align-items:center;padding:0 56px 0 72px}
+  .og-card h1{font-size:68px;line-height:1.05;margin:0 0 28px;font-weight:800;letter-spacing:-.02em}
+  .og-card ul{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+  .og-card li{display:flex;align-items:center;gap:16px;font-size:30px;font-weight:700}
+  .og-card li b{width:190px}
+  .pill{display:inline-flex;align-items:center;gap:10px;font-weight:800;font-size:26px;padding:6px 20px 6px 14px;border-radius:999px}
+  .pill i{width:14px;height:14px;border-radius:50%;background:currentColor}
+  .yes{color:#1f8a58;background:#e2f4ea}.limit{color:#a86a00;background:#fcefd2}.avoid{color:#b8521f;background:#fde5d8}.no{color:#c02f2f;background:#fbe0e0}
+  .og-card img{width:500px;height:500px;object-fit:contain;filter:drop-shadow(0 30px 30px rgba(80,50,20,.18))}
+  .brand{position:absolute;left:72px;bottom:34px;font-size:24px;font-weight:700;color:#7a6c63}
+  .brand b{color:#2a221d}
+</style></head>
+<body><div id="stage"></div><script type="module" src="render.js"></script></body></html>

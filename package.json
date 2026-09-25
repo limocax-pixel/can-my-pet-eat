@@ -1,0 +1,22 @@
+{
+  "name": "can-my-pet-eat",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Can my hamster, budgie or cockatiel eat this? A free, open 3D food-safety checker and dataset for small-pet owners, by JOMIZOO.",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/build.mjs && node scripts/serve.mjs",
+    "check": "node scripts/validate.mjs",
+    "thumbs": "node scripts/thumbs.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "playwright-core": "^1.63.0",
+    "three": "^0.186.1"
+  }
+}

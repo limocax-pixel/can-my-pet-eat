@@ -1,0 +1,30 @@
+name: Correction
+description: A verdict, portion or fact looks wrong
+title: "Correction: "
+labels: [correction]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page URL
+      placeholder: https://limocax-pixel.github.io/can-my-pet-eat/can-hamsters-eat/grapes/
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What is wrong, and what should it say?
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Source
+      description: A veterinary, welfare-charity or peer-reviewed source that supports the change. Corrections without a source are hard for us to act on.
+    validations:
+      required: true
+  - type: dropdown
+    id: role
+    attributes:
+      label: Are you a veterinary professional?
+      options: ["No", "Yes — veterinarian", "Yes — veterinary nurse/technician", "Researcher"]

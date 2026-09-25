@@ -1,0 +1,58 @@
+{
+  "hamster": {
+    "name": "hamster",
+    "group": "rodent",
+    "heroFood": "apple",
+    "intro": "Pet hamsters do best on a complete pellet with a small daily portion of fresh food. Below, 68 common foods are rated for hamsters, with portions for Syrian hamsters and stricter notes for diabetes-prone dwarf species.",
+    "basics": [
+      "Base the diet on a hamster pellet. Every piece is the same, so your hamster can’t pick out the sugary bits and leave the fibre, as it can with a muesli-style mix.",
+      "Add a small daily portion of vegetables and herbs: about one or two teaspoons in total. Keep fruit to an occasional treat.",
+      "Always provide clean, fresh water, ideally from a bottle with a metal spout.",
+      "Scatter pellets around the enclosure or bury them in deep bedding, so your hamster can forage and dig as it would naturally.",
+      "Hamsters hoard food in their nest. Remove uneaten fresh food every day so nothing spoils in the stash.",
+      "Dwarf hamsters (Campbell’s, Winter White and their hybrids) are prone to diabetes, so keep sugary fruit and treats especially small.",
+      "Occasional protein treats such as a little boiled egg or a few mealworms are fine."
+    ],
+    "sources": [
+      "pdsa-hamster-diet",
+      "exocare-dwarf-diabetes"
+    ]
+  },
+  "budgie": {
+    "name": "budgie",
+    "group": "bird",
+    "heroFood": "broccoli",
+    "intro": "Budgies (budgerigars, often called parakeets in the US) need far more than seed. Below, 68 common foods are rated for budgies, with portions sized for a very small bird.",
+    "basics": [
+      "Make pellets the main food. Veterinary guidance suggests pellets should be roughly 60–80% of a budgie’s diet.",
+      "Keep seed to a small part of the diet, never the whole of it. Seeds lack key vitamins, minerals and protein; the RSPCA suggests seed should be no more than about a tenth of the diet for small parrots.",
+      "Offer fresh vegetables, greens and some fruit every day, making up about a fifth to a quarter of the diet at most.",
+      "Fresh, clean water must be available at all times.",
+      "Human food should be plain and tiny: a thumbnail-sized amount for a budgie is like a dinner plate for a person.",
+      "When switching a seed-eater to pellets, offer the pellets on their own, not mixed with seed, first thing in the morning when your budgie is hungriest."
+    ],
+    "sources": [
+      "vca-budgie-feeding",
+      "rspca-bird-diet"
+    ]
+  },
+  "cockatiel": {
+    "name": "cockatiel",
+    "group": "bird",
+    "heroFood": "broccoli",
+    "intro": "Cockatiels thrive on pellets and fresh vegetables, and do poorly on seed alone. Below, 68 common foods are rated for cockatiels, with portions sized for a small parrot.",
+    "basics": [
+      "Make pellets the main food. Veterinary guidance suggests about 75–80% of a cockatiel’s diet.",
+      "Seed-only diets can lead to ill health and a shorter life. The RSPCA suggests seed should be no more than about a tenth of the diet for small parrots.",
+      "Fruits, vegetables and greens should make up no more than about 20–25% of the daily diet.",
+      "Cockatiels are vulnerable to vitamin A deficiency and low dietary calcium, so dark leafy greens and orange vegetables are especially useful.",
+      "Fresh, clean water must be available at all times.",
+      "Human food should be plain and small: about a teaspoon for a cockatiel is like a dinner plate for a person."
+    ],
+    "sources": [
+      "vca-cockatiel-feeding",
+      "vca-fruit-veg-birds",
+      "rspca-bird-diet"
+    ]
+  }
+}

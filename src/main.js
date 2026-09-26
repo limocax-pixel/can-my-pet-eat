@@ -96,7 +96,7 @@ function initFinder() {
           const [st] = f.v[pet];
           return `<li role="option" id="opt-${f.id}" data-id="${f.id}" aria-selected="${i === active}"><img src="${base}img/foods/${f.id}.webp" alt="" width="34" height="34"><span>${esc(f.n)}</span><span class="pill pill--${st}">${icon(st)}${labels[st][0]}</span></li>`;
         }).join('')
-      : `<li class="combo__empty">We haven’t rated “${esc(q)}” yet. <a href="https://github.com/limocax-pixel/can-my-pet-eat/issues/new?labels=food-request&title=${encodeURIComponent('Food request: ' + q)}" target="_blank" rel="noopener">Request it</a></li>`;
+      : `<li class="combo__empty">We haven’t rated “${esc(q)}” yet. <a href="https://github.com/limocax-pixel/jomizoo-can-eat/issues/new?labels=food-request&title=${encodeURIComponent('Food request: ' + q)}" target="_blank" rel="noopener">Request it</a></li>`;
     list.hidden = false;
     input.setAttribute('aria-expanded', 'true');
     input.setAttribute('aria-activedescendant', active >= 0 ? `opt-${matches[active].id}` : '');

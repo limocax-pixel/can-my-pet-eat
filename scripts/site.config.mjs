@@ -1,12 +1,12 @@
 // Site-wide settings. SITE_URL can be overridden at build time, e.g. when the
 // site moves to a custom domain: SITE_URL=https://tools.jomizoo.com npm run build
-export const SITE_URL = (process.env.SITE_URL || 'https://limocax-pixel.github.io/can-my-pet-eat').replace(/\/$/, '');
-export const BASE = new URL(SITE_URL + '/').pathname; // "/can-my-pet-eat/" or "/"
+export const SITE_URL = (process.env.SITE_URL || 'https://limocax-pixel.github.io/jomizoo-can-eat').replace(/\/$/, '');
+export const BASE = new URL(SITE_URL + '/').pathname; // "/jomizoo-can-eat/" or "/"
 
 export const SITE = {
   name: 'Can My Pet Eat This?',
   tagline: 'Sourced food-safety answers for hamsters, budgies and cockatiels',
-  repo: 'https://github.com/limocax-pixel/can-my-pet-eat',
+  repo: 'https://github.com/limocax-pixel/jomizoo-can-eat',
   lang: 'en',
 };
 

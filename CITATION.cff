@@ -5,8 +5,8 @@ type: dataset
 authors:
   - name: JOMIZOO
     website: "https://jomizoo.com/"
-repository-code: "https://github.com/limocax-pixel/can-my-pet-eat"
-url: "https://limocax-pixel.github.io/can-my-pet-eat/"
+repository-code: "https://github.com/limocax-pixel/jomizoo-can-eat"
+url: "https://limocax-pixel.github.io/jomizoo-can-eat/"
 license: CC-BY-4.0
 version: 1.0.0
 date-released: 2026-09-25
